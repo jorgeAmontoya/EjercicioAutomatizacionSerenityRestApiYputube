@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+}
+
+group = 'co.com.practices'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    serenityVersion = '2.6.0'
+    serenityCucumber = '2.6.0'
+    jacksonVersion = '2.15.2'
+    jsonSchema = '4.3.3'
+    fillo = '1.18'
+    log4j = '1.2.17'
+    javaFaker = '1.0.2'
+}
+
+dependencies {
+
+    implementation group: 'net.serenity-bdd',                 name: 'serenity-core',                 version: serenityVersion
+    implementation group: 'net.serenity-bdd',                 name: 'serenity-junit',                version: serenityVersion
+    implementation group: 'net.serenity-bdd',                 name: 'serenity-screenplay',           version: serenityVersion
+    implementation group: 'net.serenity-bdd',                 name: 'serenity-screenplay-webdriver', version: serenityVersion
+    implementation group: 'net.serenity-bdd',                 name: 'serenity-single-page-report',   version: serenityVersion
+    implementation group: 'net.serenity-bdd',                 name: 'serenity-assertions',           version: serenityVersion
+    implementation group: 'net.serenity-bdd',                 name: 'serenity-ensure',               version: serenityVersion
+    implementation group: 'net.serenity-bdd',                 name: 'serenity-screenplay-rest',      version: serenityVersion
+    implementation group: 'net.serenity-bdd',                 name: 'serenity-rest-assured',         version: serenityVersion
+    implementation group: 'net.serenity-bdd',                 name: 'serenity-cucumber5',            version: serenityCucumber
+    implementation group: 'net.serenity-bdd',                 name: 'serenity-cucumber6',            version: serenityCucumber
+
+    implementation group: 'com.fasterxml.jackson.core',       name: 'jackson-databind',              version: jacksonVersion
+    implementation group: 'com.fasterxml.jackson.datatype',   name: 'jackson-datatype-jsr310',       version: jacksonVersion
+    implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml',        version: jacksonVersion
+    implementation group: 'com.github.javafaker',             name: 'javafaker',                     version: javaFaker
+    implementation group: 'com.fasterxml.jackson.core',       name: 'jackson-databind',              version: jacksonVersion
+    implementation group: 'io.rest-assured',                  name: 'json-schema-validator',         version: jsonSchema
+    implementation group: 'com.codoid.products',              name: 'fillo',                         version: fillo
+    implementation group: 'log4j',                            name: 'log4j',                         version: log4j
+
+    implementation 'org.slf4j:slf4j-api:1.7.30'
+    implementation 'org.slf4j:slf4j-simple:1.7.30'
+
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.3.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation group: 'org.codehaus.groovy', name: 'groovy-xml', version: '4.0.6'
+
+}
+
+test {
+    useJUnitPlatform()
+}
